@@ -21,12 +21,42 @@ namespace CMS.DataModel.Repositories
         {
             return await _context.Set<TEntity>().ToListAsync();
         }
+        public async Task<List<TEntity>> GetAllAsync(params Expression<Func<TEntity, object>>[] includes)
+        {
+            return await Include(_context.Set<TEntity>(),includes).ToListAsync();
+        }
 
         public async Task<TEntity> First(Expression<Func<TEntity,bool>> filter)
         {
             return  await _context.Set<TEntity>().FirstAsync(filter);
         }
 
+        public async Task<List<TEntity>> Find(Expression<Func<TEntity, bool>> filter)
+        {
+           return await _context.Set<TEntity>().Where(filter).ToListAsync();
+        }
 
+        public async Task<List<TEntity>> Find(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes)
+        {
+            return await Include(_context.Set<TEntity>().Where(filter), includes).ToListAsync();
+        }
+
+        public async Task<TEntity> Add(TEntity entity)
+        {
+            var addedEntity =_context.Set<TEntity>().Add(entity);
+            await _context.SaveChangesAsync();
+            return addedEntity;
+        }
+
+        protected static IQueryable<TEntity> Include(IQueryable<TEntity> query,
+            params Expression<Func<TEntity, object>>[] includes)
+        {
+            IQueryable<TEntity> queryable = query;
+            foreach (var include in includes)
+            {
+                queryable = queryable.Include(include);
+            }
+            return queryable;
+        }
     }
 }
