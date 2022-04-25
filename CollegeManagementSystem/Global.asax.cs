@@ -9,6 +9,7 @@ namespace CollegeManagementSystem
     {
         protected void Application_Start()
         {
+            AutofacConfig.Register();
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             WebApiConfig.Register(GlobalConfiguration.Configuration);
