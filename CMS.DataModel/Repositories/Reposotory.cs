@@ -20,5 +20,7 @@ namespace CMS.DataModel.Repositories
         {
             return _context.Set<TEntity>().ToList();
         }
+
+
     }
 }
