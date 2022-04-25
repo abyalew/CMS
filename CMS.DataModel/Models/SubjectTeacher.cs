@@ -1,12 +1,12 @@
 ﻿namespace CMS.DataModel
 {
-    public class Class
+    public class SubjectTeacher
     {
         public int Id { get; set; }
         public int TeacherId { get; set; }
-        public int AddmitionId { get; set; }
+        public int SubjectId { get; set; }
         public Teacher Teacher { get; set; }
-        public Addmition Addmition { get; set; }
+        public Subject Subject { get; set; }
     }
 
 }

@@ -25,12 +25,16 @@ namespace CollegeManagementSystem
             builder.RegisterType<AutoMap>().As<IAutoMap>().SingleInstance();
             builder.RegisterType<CMSDbContext>().AsSelf().InstancePerLifetimeScope();
 
+            RegisterServices(builder);
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
 
-        
+        private static void RegisterServices(ContainerBuilder builder)
+        {
+            builder.RegisterType<CourseBusiness>().As<ICourseBusiness>();
+        }
 
     }
 }

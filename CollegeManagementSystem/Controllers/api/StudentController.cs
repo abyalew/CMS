@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
-namespace CollegeManagementSystem.Controllers.api
+namespace CollegeManagementSystem.Controllers.Api
 {
     public class StudentController : ApiController
     {

@@ -41,6 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Contracts\IAutoMap.cs" />
+    <Compile Include="Contracts\ICourseBusiness.cs" />
+    <Compile Include="CourseBusiness.cs" />
+    <Compile Include="Dtos\CourseViewDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -48,10 +52,6 @@
       <Project>{1eac210e-3fc5-4a52-9db1-95f9765b65f5}</Project>
       <Name>CMS.DataModel</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Contracts\" />
-    <Folder Include="Dtos\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
