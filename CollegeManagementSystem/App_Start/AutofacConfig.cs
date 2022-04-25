@@ -7,6 +7,9 @@ using System.Reflection;
 using CMS.DataModel;
 using System.Data.Entity;
 using System.Web.Http;
+using CollegeManagementSystem.App_Start;
+using CMS.Business.Contracts;
+using CMS.Business;
 
 namespace CollegeManagementSystem
 {
@@ -19,11 +22,15 @@ namespace CollegeManagementSystem
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
             builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
             builder.RegisterGeneric(typeof(Reposotory<>)).As(typeof(IRepository<>));
+            builder.RegisterType<AutoMap>().As<IAutoMap>().SingleInstance();
             builder.RegisterType<CMSDbContext>().AsSelf().InstancePerLifetimeScope();
+
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
+
+        
 
     }
 }
