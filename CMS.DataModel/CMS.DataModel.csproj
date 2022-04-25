@@ -51,20 +51,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Addmition.cs" />
-    <Compile Include="Class.cs" />
+    <Compile Include="Models\Addmition.cs" />
+    <Compile Include="Models\Class.cs" />
     <Compile Include="CMSDbContext.cs" />
-    <Compile Include="Course.cs" />
-    <Compile Include="CourseSubject.cs" />
+    <Compile Include="Models\Course.cs" />
+    <Compile Include="Models\CourseSubject.cs" />
     <Compile Include="Migrations\202204231101160_CreateTables.cs" />
     <Compile Include="Migrations\202204231101160_CreateTables.designer.cs">
       <DependentUpon>202204231101160_CreateTables.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
-    <Compile Include="Subject.cs" />
-    <Compile Include="Teacher.cs" />
+    <Compile Include="Models\Student.cs" />
+    <Compile Include="Models\Subject.cs" />
+    <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Repositories\Reposotory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
