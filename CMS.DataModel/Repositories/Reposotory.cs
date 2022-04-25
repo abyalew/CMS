@@ -1,16 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CMS.DataModel.Repositories
 {
-    class Reposotory
+    public class Reposotory<TEntity>: IRepository<TEntity> where TEntity:class
     {
-        public Reposotory()
+        private readonly DbContext _context;
+
+        public Reposotory(CMSDbContext context)
         {
-            //_context = new 
+            _context = context;
         }
+
+        public List<TEntity> GetAll()
+        {
+            return _context.Set<TEntity>().ToList();
+        }
+
+
     }
 }

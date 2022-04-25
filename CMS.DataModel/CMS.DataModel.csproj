@@ -65,6 +65,7 @@
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\Subject.cs" />
     <Compile Include="Models\Teacher.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
     <Compile Include="Repositories\Reposotory.cs" />
   </ItemGroup>
   <ItemGroup>
