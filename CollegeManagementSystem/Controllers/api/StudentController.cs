@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CMS.DataModel;
+using CMS.DataModel.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +10,16 @@ namespace CollegeManagementSystem.Controllers.api
 {
     public class StudentController : ApiController
     {
-        [HttpGet]
-        public string Index()
+        private readonly IRepository<Student> _repo;
+
+        public StudentController(IRepository<Student> repo)
         {
-            return "wellcom to student cotroller";
+            _repo = repo;
+        }
+        [HttpGet]
+        public List<Student> Index()
+        {
+            return _repo.GetAll();
         }
     }
 }

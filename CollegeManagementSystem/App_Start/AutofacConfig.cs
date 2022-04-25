@@ -1,19 +1,28 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
+using Autofac.Integration.WebApi;
 using System.Web.Mvc;
+using CMS.DataModel.Repositories;
+using System.Reflection;
+using CMS.DataModel;
+using System.Data.Entity;
+using System.Web.Http;
 
 namespace CollegeManagementSystem
 {
     class AutofacConfig
     {
-        public static void Register()
+        public static void Register(HttpConfiguration config)
         {
             var builder = new ContainerBuilder();
 
             builder.RegisterControllers(typeof(MvcApplication).Assembly);
-
+            builder.RegisterApiControllers(Assembly.GetExecutingAssembly());
+            builder.RegisterGeneric(typeof(Reposotory<>)).As(typeof(IRepository<>));
+            builder.RegisterType<CMSDbContext>().AsSelf().InstancePerLifetimeScope();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
+            config.DependencyResolver = new AutofacWebApiDependencyResolver(container);
         }
 
     }
