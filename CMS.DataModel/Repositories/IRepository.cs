@@ -8,6 +8,6 @@ namespace CMS.DataModel.Repositories
 {
     public interface IRepository<TEntity> where TEntity : class
     {
-        List<TEntity> GetAll();
+        Task<List<TEntity>> GetAllAsync();
     }
 }

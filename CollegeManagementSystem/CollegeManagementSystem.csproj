@@ -206,6 +206,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
+    <Folder Include="Views\Course\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -221,6 +222,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CMS.Business\CMS.Business.csproj">
+      <Project>{9a1d2491-9aa7-4323-a090-e64a6d9add75}</Project>
+      <Name>CMS.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CMS.DataModel\CMS.DataModel.csproj">
       <Project>{1eac210e-3fc5-4a52-9db1-95f9765b65f5}</Project>
       <Name>CMS.DataModel</Name>

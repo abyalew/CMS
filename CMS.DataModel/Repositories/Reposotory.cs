@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,9 +17,14 @@ namespace CMS.DataModel.Repositories
             _context = context;
         }
 
-        public List<TEntity> GetAll()
+        public async Task<List<TEntity>> GetAllAsync()
         {
-            return _context.Set<TEntity>().ToList();
+            return await _context.Set<TEntity>().ToListAsync();
+        }
+
+        public async Task<TEntity> First(Expression<Func<TEntity,bool>> filter)
+        {
+            return  await _context.Set<TEntity>().FirstAsync(filter);
         }
 
 

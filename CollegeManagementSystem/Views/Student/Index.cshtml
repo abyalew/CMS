@@ -17,10 +17,12 @@
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td></td>
-                <td></td>
-            </tr>
+            @foreach (var s in ViewBag.Students) {
+                <tr>
+                    <td>@s.Name</td>
+                    <td>@s.RegistrationNumber</td>
+                </tr>
+            }
         </tbody>
     </table>
 </div>

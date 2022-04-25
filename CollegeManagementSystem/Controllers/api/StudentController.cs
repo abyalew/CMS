@@ -3,6 +3,7 @@ using CMS.DataModel.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
@@ -17,9 +18,9 @@ namespace CollegeManagementSystem.Controllers.api
             _repo = repo;
         }
         [HttpGet]
-        public List<Student> Index()
+        public async Task<List<Student>> Index()
         {
-            return _repo.GetAll();
+            return await _repo.GetAllAsync();
         }
     }
 }
