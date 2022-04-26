@@ -17,6 +17,7 @@ namespace CollegeManagementSystem.App_Start
             {
                 mc.CreateMap<Course, CourseDto>().ReverseMap();
                 mc.CreateMap<Course, CourseViewDto>().ReverseMap();
+                mc.CreateMap<Subject, SubjectDto>().ReverseMap();
             });
 
             _mapper = config.CreateMapper();

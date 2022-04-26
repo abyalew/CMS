@@ -43,9 +43,12 @@
   <ItemGroup>
     <Compile Include="Contracts\IAutoMap.cs" />
     <Compile Include="Contracts\ICourseBusiness.cs" />
+    <Compile Include="Contracts\ISubjectBiz.cs" />
     <Compile Include="CourseBusiness.cs" />
     <Compile Include="Dtos\CourseViewDto.cs" />
+    <Compile Include="Dtos\SubjectDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SubjectBiz.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CMS.DataModel\CMS.DataModel.csproj">

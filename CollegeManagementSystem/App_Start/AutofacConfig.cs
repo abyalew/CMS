@@ -34,6 +34,7 @@ namespace CollegeManagementSystem
         private static void RegisterServices(ContainerBuilder builder)
         {
             builder.RegisterType<CourseBusiness>().As<ICourseBusiness>();
+            builder.RegisterType<SubjectBiz>().As<ISubjectBiz>();
         }
 
     }
