@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace CollegeManagementSystem
+namespace CMS.Host
 {
     class WebApiConfig
     {

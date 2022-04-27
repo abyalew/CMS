@@ -1,11 +1,11 @@
 ﻿using CMS.Business.Contracts;
-using CollegeManagementSystem.ViewModels;
+using CMS.Host.ViewModels;
 using System;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace CollegeManagementSystem.Controllers
+namespace CMS.Host.Controllers
 {
     public class CourseController : Controller
     {

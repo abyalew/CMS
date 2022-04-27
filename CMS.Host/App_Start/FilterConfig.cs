@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace CollegeManagementSystem
+namespace CMS.Host
 {
     public class FilterConfig
     {

@@ -1,4 +1,4 @@
-﻿@using CollegeManagementSystem.ViewModels;
+﻿@using CMS.Host.ViewModels;
 @model CourseEditorViewModel
 <div class="page-header">
     <h1>Edit Course</h1>
@@ -16,7 +16,7 @@
 
     <div class="form-group row">
         @Html.LabelFor(m => m.Course.Subjects, new { @class = "col-sm-1" })
-        @Html.ListBoxFor(m => m.SelectedSubjects, Model.Subjects, new { id = "SubjectList", @class = "selectSubject show-tick form-control col-sm-4" })                                       })
+        @Html.ListBoxFor(m => m.SelectedSubjects, Model.Subjects, new { id = "SubjectList", @class = "selectSubject show-tick form-control col-sm-4" })
     </div>
 
     <button type="submit" class="btn btn-sm btn-success">Save</button>

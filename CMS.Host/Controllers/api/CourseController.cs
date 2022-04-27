@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 
-namespace CollegeManagementSystem.Controllers.Api
+namespace CMS.Host.Controllers.Api
 {
     public class CourseController : ApiController
     {

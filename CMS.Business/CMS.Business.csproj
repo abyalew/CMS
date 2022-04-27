@@ -43,11 +43,15 @@
   <ItemGroup>
     <Compile Include="Contracts\IAutoMap.cs" />
     <Compile Include="Contracts\ICourseBiz.cs" />
+    <Compile Include="Contracts\IAddmitionBiz.cs" />
     <Compile Include="Contracts\ISubjectBiz.cs" />
     <Compile Include="CourseBiz.cs" />
+    <Compile Include="Dtos\AddmitionDto.cs" />
     <Compile Include="Dtos\CourseViewDto.cs" />
+    <Compile Include="Dtos\StudentDto.cs" />
     <Compile Include="Dtos\SubjectDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="AddmitionBiz.cs" />
     <Compile Include="SubjectBiz.cs" />
   </ItemGroup>
   <ItemGroup>

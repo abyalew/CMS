@@ -1,4 +1,4 @@
-﻿@model List<CMS.DataModel.Student>
+﻿@model List<CMS.Business.Dtos.StudentDto>
 @{
     ViewBag.Title = "Students";
 }
@@ -6,7 +6,7 @@
 
 <div class="page-header">
     <h1>Students</h1>
-
+    @Html.ActionLink("Create", $"Edit", null, new { @class = "btn btn-info" })
 </div>
 
 <div>
@@ -21,7 +21,7 @@
             @foreach (var s in Model) {
             <tr>
                 <td>@s.Name</td>
-                <td>@s.RegistrationNumber</td>
+                <td>@s.Addmitions.First().Id</td>
             </tr>
             }
         </tbody>

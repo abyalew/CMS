@@ -1,6 +1,6 @@
 ﻿using System.Web.Optimization;
 
-namespace CollegeManagementSystem
+namespace CMS.Host
 {
     public class BundleConfig
     {

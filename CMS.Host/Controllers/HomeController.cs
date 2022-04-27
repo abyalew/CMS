@@ -1,6 +1,6 @@
 ﻿using System.Web.Mvc;
 
-namespace CollegeManagementSystem.Controllers
+namespace CMS.Host.Controllers
 {
     public class HomeController : Controller
     {

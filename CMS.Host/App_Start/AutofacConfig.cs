@@ -5,12 +5,12 @@ using CMS.Business;
 using CMS.Business.Contracts;
 using CMS.DataModel;
 using CMS.DataModel.Repositories;
-using CollegeManagementSystem.App_Start;
+using CMS.Host.App_Start;
 using System.Reflection;
 using System.Web.Http;
 using System.Web.Mvc;
 
-namespace CollegeManagementSystem
+namespace CMS.Host
 {
     class AutofacConfig
     {
@@ -35,12 +35,14 @@ namespace CollegeManagementSystem
         {
             builder.RegisterGeneric(typeof(Reposotory<>)).As(typeof(IRepository<>));
             builder.RegisterType<CourseRepo>().As<ICourseRepo>();
+            builder.RegisterType<StudentRepo>().As<IStudentRepo>();
         }
 
         private static void RegisterServices(ContainerBuilder builder)
         {
             builder.RegisterType<CourseBiz>().As<ICourseBiz>();
             builder.RegisterType<SubjectBiz>().As<ISubjectBiz>();
+            builder.RegisterType<AddmitionBiz>().As<IAddmitionBiz>();
         }
 
     }

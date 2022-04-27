@@ -3,7 +3,7 @@ using CMS.Business.Contracts;
 using CMS.Business.Dtos;
 using CMS.DataModel;
 
-namespace CollegeManagementSystem.App_Start
+namespace CMS.Host.App_Start
 {
     public class AutoMap : IAutoMap
     {
@@ -17,6 +17,9 @@ namespace CollegeManagementSystem.App_Start
                 mc.CreateMap<Subject, SubjectDto>().ReverseMap();
                 mc.CreateMap<Course, CourseDto>().ReverseMap();
                 mc.CreateMap<Course, CourseViewDto>().ReverseMap();
+                mc.CreateMap<Student, StudentDto>().ReverseMap();
+                mc.CreateMap<Addmition, AddmitionDto>().ReverseMap();
+                mc.CreateMap<Addmition, AddmitionReadDto>().ReverseMap();
             });
 
             _mapper = config.CreateMapper();

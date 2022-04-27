@@ -1,11 +1,12 @@
 ﻿using CMS.DataModel;
 using CMS.DataModel.Repositories;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Web.Mvc;
+using System.Web.Http;
 
-namespace CollegeManagementSystem.Controllers
+namespace CMS.Host.Controllers.Api
 {
-    public class StudentController : Controller
+    public class StudentController : ApiController
     {
         private readonly IRepository<Student> _repo;
 
@@ -13,10 +14,10 @@ namespace CollegeManagementSystem.Controllers
         {
             _repo = repo;
         }
-        public async Task<ActionResult> Index()
+        [HttpGet]
+        public async Task<List<Student>> Index()
         {
-            var data = await _repo.GetAllAsync();
-            return View(data);
+            return await _repo.GetAllAsync();
         }
     }
 }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web.Mvc;
 
-namespace CollegeManagementSystem.ViewModels
+namespace CMS.Host.ViewModels
 {
     public class CourseEditorViewModel
     {

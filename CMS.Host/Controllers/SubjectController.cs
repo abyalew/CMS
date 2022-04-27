@@ -3,7 +3,7 @@ using CMS.Business.Dtos;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
-namespace CollegeManagementSystem.Controllers
+namespace CMS.Host.Controllers
 {
     public class SubjectController : Controller
     {

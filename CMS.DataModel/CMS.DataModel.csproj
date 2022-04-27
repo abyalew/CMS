@@ -59,6 +59,10 @@
     <Compile Include="Migrations\202204270702463_CreateStudentGradesTable.designer.cs">
       <DependentUpon>202204270702463_CreateStudentGradesTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204271021390_RemoveRegistrationNumberFromStudentTable.cs" />
+    <Compile Include="Migrations\202204271021390_RemoveRegistrationNumberFromStudentTable.designer.cs">
+      <DependentUpon>202204271021390_RemoveRegistrationNumberFromStudentTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Addmition.cs" />
     <Compile Include="Models\StudentGrade.cs" />
     <Compile Include="Models\SubjectTeacher.cs" />
@@ -77,6 +81,7 @@
     <Compile Include="Repositories\CourseRepo.cs" />
     <Compile Include="Repositories\ICourseRepo.cs" />
     <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\IStudentRepo.cs" />
     <Compile Include="Repositories\Reposotory.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -92,6 +97,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204270702463_CreateStudentGradesTable.resx">
       <DependentUpon>202204270702463_CreateStudentGradesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271021390_RemoveRegistrationNumberFromStudentTable.resx">
+      <DependentUpon>202204271021390_RemoveRegistrationNumberFromStudentTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
