@@ -44,10 +44,4 @@ namespace CMS.DataModel.Repositories
             return removedEntity;
         }
     }
-
-    public class StudentRepo : Reposotory<Student>, IStudentRepo
-    {
-        public StudentRepo(CMSDbContext context) : base(context){}
-
-    }
 }

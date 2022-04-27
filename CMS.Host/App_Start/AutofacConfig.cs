@@ -35,7 +35,7 @@ namespace CMS.Host
         {
             builder.RegisterGeneric(typeof(Reposotory<>)).As(typeof(IRepository<>));
             builder.RegisterType<CourseRepo>().As<ICourseRepo>();
-            builder.RegisterType<StudentRepo>().As<IStudentRepo>();
+            builder.RegisterType<AdmissionRepo>().As<IAdmissionRepo>();
         }
 
         private static void RegisterServices(ContainerBuilder builder)
@@ -43,6 +43,7 @@ namespace CMS.Host
             builder.RegisterType<CourseBiz>().As<ICourseBiz>();
             builder.RegisterType<SubjectBiz>().As<ISubjectBiz>();
             builder.RegisterType<AdmissionBiz>().As<IAdmissionBiz>();
+            builder.RegisterType<TeacherBiz>().As<ITeacherBiz>();
         }
 
     }

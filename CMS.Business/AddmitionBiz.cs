@@ -11,12 +11,12 @@ namespace CMS.Business
 {
     public class AdmissionBiz : IAdmissionBiz
     {
-        private readonly IRepository<Admission> _AdmissionRepo;
+        private readonly IAdmissionRepo _AdmissionRepo;
         private readonly IRepository<Student> _studentRepo;
         private readonly IAutoMap _autoMap;
 
         public AdmissionBiz(
-            IRepository<Admission> AdmissionRepo,
+            IAdmissionRepo AdmissionRepo,
             IRepository<Student> studentRepo,
             IAutoMap autoMap)
         {
@@ -31,24 +31,17 @@ namespace CMS.Business
 
             var result = addmissions.Select(a =>
             {
-                var x = _autoMap.MapTo<AdmissionReadDto>(a);
-
-                foreach (var cs in a.Course.CourseSubjects)
-                {
-                    if (!x.StudentGrades.Any(sg => sg.SubjectId == cs.SubjectId))
-                        x.StudentGrades.Add(new StudentGradeDto
-                        {
-                            SubjectId = cs.SubjectId,
-                            Subject = _autoMap.MapTo<SubjectDto>(cs.Subject)
-                        });
-                }
-                return x;
+                return MapToAdmissionReadDto(a);
             }).ToList();
-
-
-            
-            
             return result;
+        }
+
+        public async Task<AdmissionReadDto> GetById(int admissionId)
+        {
+            var addmission = await _AdmissionRepo.FirstAsync(a => a.Id == admissionId,
+                a => a.Student, a => a.Course.CourseSubjects.Select(cs => cs.Subject),
+                a => a.StudentGrades.Select(sg => sg.Subject));
+            return MapToAdmissionReadDto(addmission);
         }
 
         public async Task<AdmissionDto> Edit(AdmissionEditorDto student)
@@ -57,6 +50,38 @@ namespace CMS.Business
                 return await Create(student);
             else
                 return await Update(student);
+        }
+
+        public async Task<AdmissionReadDto> EditGrade(AdmissionReadDto admission)
+        {
+            var entity = await _AdmissionRepo.FirstAsync(a => a.Id == admission.Id, a => a.StudentGrades);
+
+            admission.StudentGrades.ForEach(sg =>
+            {
+                if (sg.Id == 0)
+                    entity.StudentGrades.Add(_autoMap.MapTo<StudentGrade>(sg));
+                else
+                    entity.StudentGrades.First(g => g.Id == sg.Id).Grade = sg.Grade ?? 0;
+            });
+
+            return _autoMap.MapTo<AdmissionReadDto>(await _AdmissionRepo.Update(entity));
+        }
+
+        private AdmissionReadDto MapToAdmissionReadDto(Admission addmission)
+        {
+            var result = _autoMap.MapTo<AdmissionReadDto>(addmission);
+
+            foreach (var cs in addmission.Course.CourseSubjects)
+            {
+                if (!result.StudentGrades.Any(sg => sg.SubjectId == cs.SubjectId))
+                    result.StudentGrades.Add(new StudentGradeDto
+                    {
+                        SubjectId = cs.SubjectId,
+                        Subject = _autoMap.MapTo<SubjectDto>(cs.Subject)
+                    });
+            }
+
+            return result;
         }
 
         private async Task<AdmissionDto> Create(AdmissionEditorDto admission)
@@ -74,7 +99,6 @@ namespace CMS.Business
             var addedStudent = await _studentRepo.Add(student);
             return _autoMap.MapTo<AdmissionDto>(addedStudent.Admissions.First());
         }
-
 
         private async Task<AdmissionDto> Update(AdmissionEditorDto Admission)
         {

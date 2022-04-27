@@ -52,10 +52,22 @@ namespace CMS.Host.Controllers
             return View(vm);
         }
 
-        //public async Task<ViewResult> EditGrade(int id)
-        //{
-        //    var a = _biz.
-        //}
+        [HttpGet]
+        public async Task<ViewResult> EditGrade(int id)
+        {
+            var a = await _biz.GetById(id);
+            var vm = new AdmissionViewModel
+            {
+                CourseId = a.CourseId.ToString(),
+                CourseName = a.Course.AwardTitle,
+                RegistrationNo = a.Id,
+                StudentGrades = a.StudentGrades,
+                StudentId = a.StudentId,
+                StudentName = a.Student.Name,
+                StudentBirthday = a.Student.Birthday
+            };
+            return View(vm);
+        }
 
         [HttpPost]
         public async Task<ActionResult> Edit(AdmissionEditorViewModel viewModel)
@@ -72,6 +84,59 @@ namespace CMS.Host.Controllers
             };
             await _biz.Edit(admission);
             return Redirect("/student");
+        }
+        
+        [HttpPost]
+        public async Task<ActionResult> EditGrade(AdmissionViewModel viewModel)
+        {
+
+            var admission = new AdmissionReadDto
+            {
+                Id = viewModel.RegistrationNo,
+                StudentGrades = viewModel.StudentGrades
+            };
+
+            await _biz.EditGrade(admission);
+            return Redirect("/student");
+        }
+    }
+
+    public class TeacherController : Controller
+    {
+        private readonly ITeacherBiz _biz;
+
+        public TeacherController(ITeacherBiz biz)
+        {
+            _biz = biz;
+        }
+        public async Task<ActionResult> Index()
+        {
+            var data = await _biz.GetAll();
+
+            return View(data);
+        }
+
+        [HttpGet]
+        public async Task<ViewResult> Edit(int? id)
+        {
+            if (id.HasValue)
+                return View(await _biz.GetById(id.Value));
+            else
+                return View();
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(TeacherDto teacher)
+        {
+            await _biz.Edit(teacher);
+            return Redirect("/Teacher");
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> Delete(int id)
+        {
+            await _biz.Delete(id);
+            return Redirect("/Teacher");
         }
     }
 }
