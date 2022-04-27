@@ -1,20 +1,18 @@
 ﻿using CMS.Business.Contracts;
 using CollegeManagementSystem.ViewModels;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using System.Web;
 using System.Web.Mvc;
 
 namespace CollegeManagementSystem.Controllers
 {
-    public class CourseController:Controller
+    public class CourseController : Controller
     {
         private readonly ICourseBiz _biz;
         private readonly ISubjectBiz _subject;
 
-        public CourseController(ICourseBiz biz,ISubjectBiz subject)
+        public CourseController(ICourseBiz biz, ISubjectBiz subject)
         {
             _biz = biz;
             _subject = subject;

@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace CMS.DataModel
+﻿namespace CMS.DataModel
 {
     public class Student
     {

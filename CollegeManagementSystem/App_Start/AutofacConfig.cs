@@ -1,15 +1,14 @@
 ﻿using Autofac;
 using Autofac.Integration.Mvc;
 using Autofac.Integration.WebApi;
-using System.Web.Mvc;
-using CMS.DataModel.Repositories;
-using System.Reflection;
-using CMS.DataModel;
-using System.Data.Entity;
-using System.Web.Http;
-using CollegeManagementSystem.App_Start;
-using CMS.Business.Contracts;
 using CMS.Business;
+using CMS.Business.Contracts;
+using CMS.DataModel;
+using CMS.DataModel.Repositories;
+using CollegeManagementSystem.App_Start;
+using System.Reflection;
+using System.Web.Http;
+using System.Web.Mvc;
 
 namespace CollegeManagementSystem
 {

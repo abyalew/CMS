@@ -2,8 +2,6 @@
 using CMS.Business.Contracts;
 using CMS.Business.Dtos;
 using CMS.DataModel;
-using System.Linq;
-using System.Reflection;
 
 namespace CollegeManagementSystem.App_Start
 {

@@ -1,8 +1,7 @@
 ﻿namespace CMS.DataModel.Migrations
 {
-    using System;
     using System.Data.Entity.Migrations;
-    
+
     public partial class CreateSubjectTeacherTable : DbMigration
     {
         public override void Up()
@@ -14,32 +13,32 @@
             CreateTable(
                 "dbo.SubjectTeachers",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        TeacherId = c.Int(nullable: false),
-                        SubjectId = c.Int(nullable: false),
-                    })
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    TeacherId = c.Int(nullable: false),
+                    SubjectId = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Subjects", t => t.SubjectId, cascadeDelete: true)
                 .ForeignKey("dbo.Teachers", t => t.TeacherId, cascadeDelete: true)
                 .Index(t => t.TeacherId)
                 .Index(t => t.SubjectId);
-            
+
             DropTable("dbo.Classes");
         }
-        
+
         public override void Down()
         {
             CreateTable(
                 "dbo.Classes",
                 c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        TeacherId = c.Int(nullable: false),
-                        AddmitionId = c.Int(nullable: false),
-                    })
+                {
+                    Id = c.Int(nullable: false, identity: true),
+                    TeacherId = c.Int(nullable: false),
+                    AddmitionId = c.Int(nullable: false),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             DropForeignKey("dbo.SubjectTeachers", "TeacherId", "dbo.Teachers");
             DropForeignKey("dbo.SubjectTeachers", "SubjectId", "dbo.Subjects");
             DropIndex("dbo.SubjectTeachers", new[] { "SubjectId" });

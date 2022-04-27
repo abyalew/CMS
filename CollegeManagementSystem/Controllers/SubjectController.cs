@@ -21,7 +21,7 @@ namespace CollegeManagementSystem.Controllers
         [HttpGet]
         public async Task<ViewResult> Edit(int? id)
         {
-            if(id.HasValue)
+            if (id.HasValue)
                 return View(await _biz.GetById(id.Value));
             return View();
         }

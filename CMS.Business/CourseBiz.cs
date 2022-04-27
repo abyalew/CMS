@@ -5,7 +5,6 @@ using CMS.DataModel.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace CMS.Business
@@ -46,9 +45,9 @@ namespace CMS.Business
 
         public async Task<CourseViewDto> GetById(int courseId)
         {
-            var course = await _repo.FirstAsync(c => c.Id == courseId, c=>c.CourseSubjects.Select(cs=>cs.Subject));
-            var courseDto =_objectMap.MapTo<CourseViewDto>(course);
-            foreach(var cs in course.CourseSubjects)
+            var course = await _repo.FirstAsync(c => c.Id == courseId, c => c.CourseSubjects.Select(cs => cs.Subject));
+            var courseDto = _objectMap.MapTo<CourseViewDto>(course);
+            foreach (var cs in course.CourseSubjects)
             {
                 courseDto.Subjects.Add(_objectMap.MapTo<SubjectDto>(cs.Subject));
             }

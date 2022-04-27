@@ -6,7 +6,7 @@ using System.Web.Http;
 
 namespace CollegeManagementSystem.Controllers.Api
 {
-    public class CourseController: ApiController
+    public class CourseController : ApiController
     {
         private readonly ICourseBiz _biz;
 

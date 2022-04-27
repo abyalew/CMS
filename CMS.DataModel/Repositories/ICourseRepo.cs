@@ -2,7 +2,7 @@
 
 namespace CMS.DataModel.Repositories
 {
-    public interface ICourseRepo: IRepository<Course>
+    public interface ICourseRepo : IRepository<Course>
     {
         Task<Course> Delete(int courseId);
     }
