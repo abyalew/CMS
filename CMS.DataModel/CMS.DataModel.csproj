@@ -63,7 +63,23 @@
     <Compile Include="Migrations\202204271021390_RemoveRegistrationNumberFromStudentTable.designer.cs">
       <DependentUpon>202204271021390_RemoveRegistrationNumberFromStudentTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Models\Addmition.cs" />
+    <Compile Include="Migrations\202204271406407_RenamedAdmissionTable.cs" />
+    <Compile Include="Migrations\202204271406407_RenamedAdmissionTable.designer.cs">
+      <DependentUpon>202204271406407_RenamedAdmissionTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271504583_RenamedAdmissionRelations.cs" />
+    <Compile Include="Migrations\202204271504583_RenamedAdmissionRelations.designer.cs">
+      <DependentUpon>202204271504583_RenamedAdmissionRelations.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271529028_AddBirthdayColumnToStudentTable.cs" />
+    <Compile Include="Migrations\202204271529028_AddBirthdayColumnToStudentTable.designer.cs">
+      <DependentUpon>202204271529028_AddBirthdayColumnToStudentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202204271746118_AddGradeColumnToStudentGradeTable.cs" />
+    <Compile Include="Migrations\202204271746118_AddGradeColumnToStudentGradeTable.designer.cs">
+      <DependentUpon>202204271746118_AddGradeColumnToStudentGradeTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Admission.cs" />
     <Compile Include="Models\StudentGrade.cs" />
     <Compile Include="Models\SubjectTeacher.cs" />
     <Compile Include="CMSDbContext.cs" />
@@ -100,6 +116,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204271021390_RemoveRegistrationNumberFromStudentTable.resx">
       <DependentUpon>202204271021390_RemoveRegistrationNumberFromStudentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271406407_RenamedAdmissionTable.resx">
+      <DependentUpon>202204271406407_RenamedAdmissionTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271504583_RenamedAdmissionRelations.resx">
+      <DependentUpon>202204271504583_RenamedAdmissionRelations.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271529028_AddBirthdayColumnToStudentTable.resx">
+      <DependentUpon>202204271529028_AddBirthdayColumnToStudentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204271746118_AddGradeColumnToStudentGradeTable.resx">
+      <DependentUpon>202204271746118_AddGradeColumnToStudentGradeTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

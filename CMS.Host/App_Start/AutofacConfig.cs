@@ -42,7 +42,7 @@ namespace CMS.Host
         {
             builder.RegisterType<CourseBiz>().As<ICourseBiz>();
             builder.RegisterType<SubjectBiz>().As<ISubjectBiz>();
-            builder.RegisterType<AddmitionBiz>().As<IAddmitionBiz>();
+            builder.RegisterType<AdmissionBiz>().As<IAdmissionBiz>();
         }
 
     }

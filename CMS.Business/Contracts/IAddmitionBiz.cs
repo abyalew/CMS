@@ -4,9 +4,9 @@ using System.Threading.Tasks;
 
 namespace CMS.Business.Contracts
 {
-    public interface IAddmitionBiz
+    public interface IAdmissionBiz
     {
-        Task<List<AddmitionDto>> GetAll();
-        Task<AddmitionDto> Edit(AddmitionEditorDto student);
+        Task<List<AdmissionReadDto>> GetAll();
+        Task<AdmissionDto> Edit(AdmissionEditorDto student);
     }
 }

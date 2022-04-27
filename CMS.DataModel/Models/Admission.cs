@@ -2,7 +2,7 @@
 
 namespace CMS.DataModel
 {
-    public class Addmition
+    public class Admission
     {
         public int Id { get; set; }
         public int StudentId { get; set; }

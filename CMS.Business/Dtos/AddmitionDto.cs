@@ -1,21 +1,26 @@
-﻿namespace CMS.Business.Dtos
+﻿using System.Collections.Generic;
+
+namespace CMS.Business.Dtos
 {
-    public class AddmitionDto
+    public class AdmissionDto
     {
         public int Id { get; set; }
         public int StudentId { get; set; }
         public int CourseId { get; set; }
         public decimal Grade { get; set; }
+        public StudentDto Student { get; set; }
+        public CourseDto Course { get; set; }
     }
 
-    public class AddmitionEditorDto : AddmitionDto
+    public class AdmissionEditorDto : AdmissionDto
     {
         public string StudentName { get; set; }
     }
 
-    public class AddmitionReadDto : AddmitionDto
+    public class AdmissionReadDto : AdmissionDto
     {
         public string StudentName { get; set; }
         public string CourseName { get; set; }
+        public List<StudentGradeDto> StudentGrades { get; set; }
     }
 }

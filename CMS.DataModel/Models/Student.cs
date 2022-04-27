@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CMS.DataModel
 {
@@ -6,10 +7,11 @@ namespace CMS.DataModel
     {
         public Student()
         {
-            Addmitions = new List<Addmition>();
+            Admissions = new List<Admission>();
         }
         public int Id { get; set; }
         public string Name { get; set; }
-        public ICollection<Addmition> Addmitions { get; set; }
+        public DateTime Birthday { get; set; }
+        public ICollection<Admission> Admissions { get; set; }
     }
 }

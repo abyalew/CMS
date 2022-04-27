@@ -23,12 +23,12 @@ namespace CMS.Business
         public async Task<List<CourseViewDto>> GetPage()
         {
             var courses = await _repo.GetAllAsync(c =>
-                                c.Addmitions.Select(a => a.Student),
+                                c.Admissions.Select(a => a.Student),
                                 c => c.CourseSubjects.Select(sbj => sbj.Subject.SubjectTeachers.Select(st => st.Teacher)));
             courses.Select(c =>
             {
-                var totalGrade = c.Addmitions.Sum(a => a.Grade);
-                var averageGrade = totalGrade == 0 ? 0 : totalGrade / c.Addmitions.Count;
+                var totalGrade = c.Admissions.Sum(a => a.Grade);
+                var averageGrade = totalGrade == 0 ? 0 : totalGrade / c.Admissions.Count;
                 var teachers = c.CourseSubjects.SelectMany(sbj => sbj.Subject.SubjectTeachers.Select(st => st.Teacher)).Distinct();
 
                 return new CourseViewDto
@@ -36,7 +36,7 @@ namespace CMS.Business
                     Id = c.Id,
                     AwardTitle = c.AwardTitle,
                     AverageGrade = averageGrade,
-                    NumberOfStudents = c.Addmitions.Count,
+                    NumberOfStudents = c.Admissions.Count,
                     NumberOfTeachers = teachers.Count()
                 };
             });

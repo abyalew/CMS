@@ -49,6 +49,7 @@
     <Compile Include="Dtos\AddmitionDto.cs" />
     <Compile Include="Dtos\CourseViewDto.cs" />
     <Compile Include="Dtos\StudentDto.cs" />
+    <Compile Include="Dtos\StudentGradeDto.cs" />
     <Compile Include="Dtos\SubjectDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AddmitionBiz.cs" />

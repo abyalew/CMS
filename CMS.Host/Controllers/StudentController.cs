@@ -1,8 +1,11 @@
 ﻿using CMS.Business.Contracts;
+using CMS.Business.Dtos;
 using CMS.DataModel;
 using CMS.DataModel.Repositories;
 using CMS.Host.ViewModels;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
 
@@ -10,18 +13,65 @@ namespace CMS.Host.Controllers
 {
     public class StudentController : Controller
     {
-        private readonly IAddmitionBiz _biz;
+        private readonly IAdmissionBiz _biz;
+        private readonly ICourseBiz _courseBiz;
 
-        public StudentController(IAddmitionBiz biz)
+        public StudentController(IAdmissionBiz biz,ICourseBiz courseBiz)
         {
             _biz = biz;
+            _courseBiz = courseBiz;
         }
+
         public async Task<ActionResult> Index()
         {
             var data = await _biz.GetAll();
-            var vm = new List<StudentViewModel>();
+            var vm = data.Select(a =>
+                new AdmissionViewModel
+                {
+                    RegistrationNo = a.Id,
+                    CourseName = a.Course.AwardTitle,
+                    StudentName = a.Student.Name,
+                    Grade = a.Grade,
+                    StudentGrades = a.StudentGrades
+                }
+            ).ToList();
 
-            return View(data);
+            return View(vm);
+        }
+
+        [HttpGet]
+        public async Task<ViewResult> Edit(int? id)
+        {
+            var courses = await _courseBiz.GetPage();
+
+            var vm = new AdmissionEditorViewModel
+            {
+                CourseSelectList = courses.Select(c => new SelectListItem { Disabled = false, Text = c.AwardTitle, Value = c.Id.ToString() }).ToList()
+            };
+
+            return View(vm);
+        }
+
+        //public async Task<ViewResult> EditGrade(int id)
+        //{
+        //    var a = _biz.
+        //}
+
+        [HttpPost]
+        public async Task<ActionResult> Edit(AdmissionEditorViewModel viewModel)
+        {
+
+            var admission = new AdmissionEditorDto
+            {
+                CourseId = Convert.ToInt32(viewModel.CourseId),
+                StudentName = viewModel.StudentName,
+                Student = new StudentDto
+                {
+                    Name = viewModel.StudentName,
+                }
+            };
+            await _biz.Edit(admission);
+            return Redirect("/student");
         }
     }
 }

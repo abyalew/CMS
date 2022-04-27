@@ -18,8 +18,8 @@ namespace CMS.Host.App_Start
                 mc.CreateMap<Course, CourseDto>().ReverseMap();
                 mc.CreateMap<Course, CourseViewDto>().ReverseMap();
                 mc.CreateMap<Student, StudentDto>().ReverseMap();
-                mc.CreateMap<Addmition, AddmitionDto>().ReverseMap();
-                mc.CreateMap<Addmition, AddmitionReadDto>().ReverseMap();
+                mc.CreateMap<Admission, AdmissionDto>().ReverseMap();
+                mc.CreateMap<Admission, AdmissionReadDto>().ReverseMap();
             });
 
             _mapper = config.CreateMapper();
