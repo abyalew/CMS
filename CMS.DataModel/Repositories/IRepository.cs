@@ -12,6 +12,7 @@ namespace CMS.DataModel.Repositories
         Task<List<TEntity>> GetAllAsync();
         Task<List<TEntity>> GetAllAsync(params Expression<Func<TEntity, object>>[] includes);
         Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> filter);
+        Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes);
         Task<List<TEntity>> Find(Expression<Func<TEntity, bool>> filter);
         Task<List<TEntity>> Find(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes);
         Task<TEntity> Add(TEntity entity);

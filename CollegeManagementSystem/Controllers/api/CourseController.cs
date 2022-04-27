@@ -8,9 +8,9 @@ namespace CollegeManagementSystem.Controllers.Api
 {
     public class CourseController: ApiController
     {
-        private readonly ICourseBusiness _biz;
+        private readonly ICourseBiz _biz;
 
-        public CourseController(ICourseBusiness biz)
+        public CourseController(ICourseBiz biz)
         {
             _biz = biz;
         }

@@ -10,7 +10,7 @@ namespace CMS.DataModel.Repositories
 {
     public class Reposotory<TEntity>: IRepository<TEntity> where TEntity:class
     {
-        private readonly CMSDbContext _context;
+        protected readonly CMSDbContext _context;
 
         public Reposotory(CMSDbContext context)
         {
@@ -31,6 +31,11 @@ namespace CMS.DataModel.Repositories
             return  await _context.Set<TEntity>().FirstAsync(filter);
         }
 
+        public async Task<TEntity> FirstAsync(Expression<Func<TEntity, bool>> filter, params Expression<Func<TEntity, object>>[] includes)
+        {
+            return await Include(_context.Set<TEntity>().Where(filter), includes).FirstAsync();
+        }
+
         public async Task<List<TEntity>> Find(Expression<Func<TEntity, bool>> filter)
         {
            return await _context.Set<TEntity>().Where(filter).ToListAsync();
@@ -48,7 +53,7 @@ namespace CMS.DataModel.Repositories
             return addedEntity;
         }
 
-        public async Task<TEntity> Update(TEntity entity)
+        public virtual async Task<TEntity> Update(TEntity entity)
         {
             var entry = _context.Entry(entity);
             entry.State = EntityState.Modified;
@@ -56,7 +61,7 @@ namespace CMS.DataModel.Repositories
             return entry.Entity;
         }
 
-        public async Task<TEntity> Delete(TEntity entity)
+        public virtual async Task<TEntity> Delete(TEntity entity)
         {
             var removedEntity = _context.Set<TEntity>().Remove(entity);
             await _context.SaveChangesAsync();

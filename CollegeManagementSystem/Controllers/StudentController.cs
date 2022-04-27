@@ -19,8 +19,8 @@ namespace CollegeManagementSystem.Controllers
         }
         public async Task<ActionResult> Index()
         {
-            ViewBag.Students = await _repo.GetAllAsync();
-            return View();
+            var data = await _repo.GetAllAsync();
+            return View(data);
         }
     }
 }

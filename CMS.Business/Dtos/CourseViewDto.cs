@@ -8,9 +8,13 @@ namespace CMS.Business.Dtos
 {
     public class CourseDto
     {
+        public CourseDto()
+        {
+            Subjects = new List<SubjectDto>();
+        }
         public int Id { get; set; }
         public string AwardTitle { get; set; }
-        //public List<CourseSubject> CourseSubjects { get; set; }
+        public List<SubjectDto> Subjects { get; set; }
     }
 
     public class CourseViewDto : CourseDto

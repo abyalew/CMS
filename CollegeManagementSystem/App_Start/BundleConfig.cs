@@ -22,9 +22,17 @@ namespace CollegeManagementSystem
             bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap-select").Include(
+                      "~/Scripts/bootstrap-select.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/js").Include(
+                      "~/Scripts/main.js"));
+
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
+                      "~/Content/bootstrap-select.css",
                       "~/Content/site.css"));
+
         }
     }
 }

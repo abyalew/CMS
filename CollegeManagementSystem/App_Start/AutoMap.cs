@@ -2,6 +2,7 @@
 using CMS.Business.Contracts;
 using CMS.Business.Dtos;
 using CMS.DataModel;
+using System.Linq;
 using System.Reflection;
 
 namespace CollegeManagementSystem.App_Start
@@ -15,9 +16,9 @@ namespace CollegeManagementSystem.App_Start
         {
             var config = new MapperConfiguration(mc =>
             {
+                mc.CreateMap<Subject, SubjectDto>().ReverseMap();
                 mc.CreateMap<Course, CourseDto>().ReverseMap();
                 mc.CreateMap<Course, CourseViewDto>().ReverseMap();
-                mc.CreateMap<Subject, SubjectDto>().ReverseMap();
             });
 
             _mapper = config.CreateMapper();

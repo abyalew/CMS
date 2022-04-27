@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<CMS.DataModel.Student>
+@{
     ViewBag.Title = "Students";
 }
 
@@ -17,11 +18,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach (var s in ViewBag.Students) {
-                <tr>
-                    <td>@s.Name</td>
-                    <td>@s.RegistrationNumber</td>
-                </tr>
+            @foreach (var s in Model) {
+            <tr>
+                <td>@s.Name</td>
+                <td>@s.RegistrationNumber</td>
+            </tr>
             }
         </tbody>
     </table>
