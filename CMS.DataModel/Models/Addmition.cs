@@ -10,6 +10,7 @@ namespace CMS.DataModel
         public decimal Grade { get; set; }
         public Student Student { get; set; }
         public Course Course { get; set; }
+        public ICollection<StudentGrade> StudentGrades { get; set; }
     }
 
 }

@@ -55,7 +55,12 @@
     <Compile Include="Migrations\202204251754338_CreateSubjectTeacherTable.designer.cs">
       <DependentUpon>202204251754338_CreateSubjectTeacherTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204270702463_CreateStudentGradesTable.cs" />
+    <Compile Include="Migrations\202204270702463_CreateStudentGradesTable.designer.cs">
+      <DependentUpon>202204270702463_CreateStudentGradesTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Addmition.cs" />
+    <Compile Include="Models\StudentGrade.cs" />
     <Compile Include="Models\SubjectTeacher.cs" />
     <Compile Include="CMSDbContext.cs" />
     <Compile Include="Models\Course.cs" />
@@ -84,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204251754338_CreateSubjectTeacherTable.resx">
       <DependentUpon>202204251754338_CreateSubjectTeacherTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204270702463_CreateStudentGradesTable.resx">
+      <DependentUpon>202204270702463_CreateStudentGradesTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
