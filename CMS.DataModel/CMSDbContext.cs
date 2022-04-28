@@ -14,7 +14,6 @@ namespace CMS.DataModel
         public DbSet<Course> Courses { get; set; }
         public DbSet<Admission> Admissions { get; set; }
         public DbSet<Subject> Subjects { get; set; }
-        public DbSet<SubjectTeacher> SubjectTeachers { get; set; }
         public DbSet<CourseSubject> CourseSubjects { get; set; }
         public DbSet<StudentGrade> StudentGrades { get; set; }
     }

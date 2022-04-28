@@ -79,9 +79,12 @@
     <Compile Include="Migrations\202204271746118_AddGradeColumnToStudentGradeTable.designer.cs">
       <DependentUpon>202204271746118_AddGradeColumnToStudentGradeTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204280651039_RemoveSubjectTeachersTable.cs" />
+    <Compile Include="Migrations\202204280651039_RemoveSubjectTeachersTable.designer.cs">
+      <DependentUpon>202204280651039_RemoveSubjectTeachersTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admission.cs" />
     <Compile Include="Models\StudentGrade.cs" />
-    <Compile Include="Models\SubjectTeacher.cs" />
     <Compile Include="CMSDbContext.cs" />
     <Compile Include="Models\Course.cs" />
     <Compile Include="Models\CourseSubject.cs" />
@@ -129,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204271746118_AddGradeColumnToStudentGradeTable.resx">
       <DependentUpon>202204271746118_AddGradeColumnToStudentGradeTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204280651039_RemoveSubjectTeachersTable.resx">
+      <DependentUpon>202204280651039_RemoveSubjectTeachersTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

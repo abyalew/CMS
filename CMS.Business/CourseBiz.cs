@@ -24,12 +24,12 @@ namespace CMS.Business
         {
             var courses = await _repo.GetAllAsync(c =>
                                 c.Admissions.Select(a => a.Student),
-                                c => c.CourseSubjects.Select(sbj => sbj.Subject.SubjectTeachers.Select(st => st.Teacher)));
+                                c => c.CourseSubjects.Select(sbj => sbj.Subject.Teacher));
             courses.Select(c =>
             {
                 var totalGrade = c.Admissions.Sum(a => a.Grade);
                 var averageGrade = totalGrade == 0 ? 0 : totalGrade / c.Admissions.Count;
-                var teachers = c.CourseSubjects.SelectMany(sbj => sbj.Subject.SubjectTeachers.Select(st => st.Teacher)).Distinct();
+                var teachers = c.CourseSubjects.Select(sbj => sbj.Subject.Teacher).Distinct();
 
                 return new CourseViewDto
                 {
