@@ -83,6 +83,10 @@
     <Compile Include="Migrations\202204280651039_RemoveSubjectTeachersTable.designer.cs">
       <DependentUpon>202204280651039_RemoveSubjectTeachersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202204281559547_InitialSeed.cs" />
+    <Compile Include="Migrations\202204281559547_InitialSeed.designer.cs">
+      <DependentUpon>202204281559547_InitialSeed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Models\Admission.cs" />
     <Compile Include="Models\StudentGrade.cs" />
     <Compile Include="CMSDbContext.cs" />
@@ -135,6 +139,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202204280651039_RemoveSubjectTeachersTable.resx">
       <DependentUpon>202204280651039_RemoveSubjectTeachersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202204281559547_InitialSeed.resx">
+      <DependentUpon>202204281559547_InitialSeed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
