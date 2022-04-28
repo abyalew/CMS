@@ -6,7 +6,7 @@ namespace CMS.Host.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return Redirect("/Student");
         }
 
         public ActionResult About()

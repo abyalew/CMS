@@ -27,7 +27,7 @@ namespace CMS.Host.App_Start
             _mapper = config.CreateMapper();
         }
 
-        public IMapper _mapper { get; }
+        private readonly IMapper _mapper;
 
         public TDestination MapTo<TSource, TDestination>(TSource source)
         {
