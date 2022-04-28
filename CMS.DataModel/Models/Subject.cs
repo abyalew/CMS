@@ -9,6 +9,7 @@ namespace CMS.DataModel
         public string Name { get; set; }
         public decimal CreditPoint { get; set; }
         public Teacher Teacher { get; set; }
+        public ICollection<CourseSubject> CourseSubjects { get; set; }
         public ICollection<StudentGrade> StudentGrades { get; set; }
     }
 }

@@ -16,7 +16,9 @@
                 <th>Registration No.</th>
                 <th>Student</th>
                 <th>Course</th>
-                <th>Grade</th>
+                <th>Subject Grade</th>
+                <th>Course Grade</th>
+
                 <th></th>
             </tr>
         </thead>
@@ -34,6 +36,7 @@
                         }
                     </ul>
                 </td>
+                <td>--</td>
                 <td>@Html.ActionLink("Edit Grade", $"EditGrade/{s.RegistrationNo}", null, new { @class = "btn btn-info btn-sm" })</td>
             </tr>
             }

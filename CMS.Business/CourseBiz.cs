@@ -25,7 +25,7 @@ namespace CMS.Business
             var courses = await _repo.GetAllAsync(c =>
                                 c.Admissions.Select(a => a.Student),
                                 c => c.CourseSubjects.Select(sbj => sbj.Subject.Teacher));
-            courses.Select(c =>
+            return courses.Select(c =>
             {
                 var totalGrade = c.Admissions.Sum(a => a.Grade);
                 var averageGrade = totalGrade == 0 ? 0 : totalGrade / c.Admissions.Count;
@@ -39,8 +39,7 @@ namespace CMS.Business
                     NumberOfStudents = c.Admissions.Count,
                     NumberOfTeachers = teachers.Count()
                 };
-            });
-            return _objectMap.MapTo<List<CourseViewDto>>(await _repo.GetAllAsync());
+            }).ToList();
         }
 
         public async Task<CourseViewDto> GetById(int courseId)
@@ -89,8 +88,6 @@ namespace CMS.Business
 
             return _objectMap.MapTo<CourseViewDto>(updatedResult);
         }
-
-
 
         private void Validate(CourseDto course)
         {

@@ -21,6 +21,8 @@
                 <tr>
                     <th>Name</th>
                     <th>Credit Point</th>
+                    <th>Teacher</th>
+                    <th>No. of Students</th>
                     <th></th>
                 </tr>
             </thead>
@@ -30,9 +32,11 @@
                     <tr>
                         <td>@c.Name</td>
                         <td>@c.CreditPoint</td>
+                        <td>@c.Teacher.Name</td>
+                        <td>@c.NumberOfStudents</td>
                         <td>
-                            @Html.ActionLink("Edit", $"Edit/{c.Id}", null, new { @class = "btn btn-info" })
-                            @Html.ActionLink("Delete", $"Delete/{c.Id}", null, new { @class = "btn btn-danger" })
+                            @Html.ActionLink("Edit", $"Edit/{c.Id}", null, new { @class = "btn btn-sm btn-info" })
+                            @Html.ActionLink("Delete", $"Delete/{c.Id}", null, new { @class = "btn btn-sm btn-danger" })
                         </td>
                     </tr>
                 }

@@ -4,6 +4,7 @@ using CMS.DataModel;
 using CMS.DataModel.Repositories;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CMS.Business
@@ -21,7 +22,13 @@ namespace CMS.Business
 
         public async Task<List<SubjectDto>> GetPage()
         {
-            return _objectMap.MapTo<List<SubjectDto>>(await _repo.GetAllAsync());
+            var subjects = await _repo.GetAllAsync(s => s.Teacher, s => s.CourseSubjects.Select(cs=>cs.Course.Admissions));
+           return  subjects.Select(s =>
+            {
+                var dto = _objectMap.MapTo<SubjectDto>(s);
+                dto.NumberOfStudents = s.CourseSubjects.Sum(cs => cs.Course.Admissions.Count);
+                return dto;
+            }).ToList();
         }
 
         public async Task<SubjectDto> GetById(int subjectId)

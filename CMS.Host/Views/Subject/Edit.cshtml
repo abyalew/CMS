@@ -1,18 +1,23 @@
-﻿@model CMS.Business.Dtos.SubjectDto
+﻿@model CMS.Host.ViewModels.SubjectViewModel
 <div class="page-header">
     <h1>Edit Subject</h1>
 
 </div>
 @using (Html.BeginForm())
 {
-    <div  class="form-group">
-        @Html.LabelFor(m => m.Name)
-        @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Name, new { @class = "col-sm-1" })
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control col-sm-4" })
     </div>
 
-    <div class="form-group">
-        @Html.LabelFor(m => m.CreditPoint)
-        @Html.TextBoxFor(m => m.CreditPoint, new { @class = "form-control" })
+    <div class="form-group row">
+        @Html.LabelFor(m => m.CreditPoint, new { @class = "col-sm-1" })
+        @Html.TextBoxFor(m => m.CreditPoint, new { @class = "form-control col-sm-4" })
+    </div>
+
+    <div class="form-group row">
+        @Html.LabelFor(m => m.Teacher, new { @class = "col-sm-1" })
+        @Html.DropDownListFor(m => m.TeacherId, Model.TeacherSelectList, new { id = "TeacherList", @class = "selectTeacher show-tick form-control col-sm-4" })
     </div>
 
     <button type="submit" class="btn btn-sm btn-success">Save</button>

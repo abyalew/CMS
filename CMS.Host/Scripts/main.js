@@ -34,4 +34,21 @@ $(document).ready(function () {
             iconBase: 'fa',
             tickIcon: 'fa-check'
         });
+
+    // Enable Live Search.  
+    $('#TeacherList').attr('data-live-search', true);
+
+    //// Enable multiple select.  
+    $('#TeacherList').attr('multiple', false);
+    $('#TeacherList').attr('data-selected-text-format', 'count');
+
+    $('.selectTeacher').selectpicker(
+        {
+            width: 'auto',
+            title: 'Choose Teachers',
+            style: 'btn-default',
+            size: 6,
+            iconBase: 'fa',
+            tickIcon: 'fa-check'
+        });
 });
