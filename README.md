@@ -9,3 +9,8 @@ Concepts from clean architecture is used. I've tried to decouple the buisness do
 Autofac is used as a inversion of control container.
 
 Automapper is used to map entity models to DTOs.
+
+## Remaining tasks
+
+- End to end validation
+- Global exception handling
