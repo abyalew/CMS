@@ -17,7 +17,7 @@
                 <tr>
                     <th>Subject</th>
                     <th>Credit Point</th>
-                    <th>Grade</th>
+                    <th width="40%">Grade</th>
                 </tr>
             </thead>
             <tbody>
@@ -30,6 +30,9 @@
                             @Html.HiddenFor(m => m.StudentGrades[i].Id)
                             @Html.HiddenFor(m => m.StudentGrades[i].SubjectId)
                             @Html.TextBoxFor(m => m.StudentGrades[i].Grade, new { @class = "form-control col-sm-4" })
+                            <div>
+                                @Html.ValidationMessageFor(m => m.StudentGrades[i].Grade, null, new { @class = "text-danger" })
+                            </div>
                         </td>
                     </tr>
                 }

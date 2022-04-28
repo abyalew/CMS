@@ -14,15 +14,18 @@ namespace CMS.Business
         private readonly IAdmissionRepo _AdmissionRepo;
         private readonly IRepository<Student> _studentRepo;
         private readonly IAutoMap _autoMap;
+        private readonly IRepository<Subject> _subjectRepo;
 
         public AdmissionBiz(
             IAdmissionRepo AdmissionRepo,
             IRepository<Student> studentRepo,
+            IRepository<Subject> subjectRepo,
             IAutoMap autoMap)
         {
             _AdmissionRepo = AdmissionRepo;
             _studentRepo = studentRepo;
             _autoMap = autoMap;
+            _subjectRepo = subjectRepo;
         }
 
         public async Task<List<AdmissionReadDto>> GetAll()
@@ -55,15 +58,21 @@ namespace CMS.Business
         public async Task<AdmissionReadDto> EditGrade(AdmissionReadDto admission)
         {
             var entity = await _AdmissionRepo.FirstAsync(a => a.Id == admission.Id, a => a.StudentGrades);
+            var subjects = await _subjectRepo.Find(s => s.CourseSubjects.Any(sc => sc.CourseId == entity.CourseId));
 
+            decimal total = 0;
             admission.StudentGrades.ForEach(sg =>
             {
                 if (sg.Id == 0)
                     entity.StudentGrades.Add(_autoMap.MapTo<StudentGrade>(sg));
                 else
                     entity.StudentGrades.First(g => g.Id == sg.Id).Grade = sg.Grade ?? 0;
+                var subject = subjects.First(s => s.Id == sg.SubjectId);
+                if (sg.Grade.HasValue)
+                    total += subject.CreditPoint * sg.Grade.Value;
             });
 
+            entity.Grade = total / subjects.Sum(s => s.CreditPoint);
             return _autoMap.MapTo<AdmissionReadDto>(await _AdmissionRepo.Update(entity));
         }
 

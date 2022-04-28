@@ -6,7 +6,7 @@ namespace CMS.DataModel
     {
         public CMSDbContext() : base()
         {
-
+            Database.SetInitializer<CMSDbContext>(new CreateDatabaseIfNotExists<CMSDbContext>());
         }
 
         public DbSet<Student> Students { get; set; }
