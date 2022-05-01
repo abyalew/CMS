@@ -14,6 +14,7 @@ namespace CMS.Host.Controllers.Api
         {
             _repo = repo;
         }
+
         [HttpGet]
         public async Task<List<Student>> Index()
         {
