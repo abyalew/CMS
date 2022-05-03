@@ -1,0 +1,20 @@
+﻿<div>
+    <table class="table table-bordered table-condensed table-responsive table-hover table-striped">
+        <thead>
+            <tr>
+                <th>Subject</th>
+                <th>Credit Point</th>
+                <th width="40%">Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="sg in VM.item.StudentGrades">
+                <td>{{sg.Subject.Name}}</td>
+                <td>{{sg.Subject.CreditPoint}}</td>
+                <td>
+                    <input class="form-control"type="number" ng-model="sg.Grade" max="4">
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

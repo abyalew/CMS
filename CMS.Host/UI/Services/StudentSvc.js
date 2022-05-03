@@ -4,12 +4,12 @@
     var url = baseUrl + 'student/';
 
 
-    function getAll() {
-        return $http.get(url + 'GetAll');
+    function saveGrade(admission) {
+        return $http.post(url + 'EditGrade', admission);
     }
 
 
     return {
-        getAll: getAll
+        saveGrade: saveGrade
     };
 }]);

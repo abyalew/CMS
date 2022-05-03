@@ -23,6 +23,13 @@ namespace CMS.Host.Controllers.Api
             return new SuccessResponse<List<AdmissionReadDto>>(await _biz.GetAll());
         }
 
+        [HttpGet]
+        public async Task<Response<AdmissionReadDto>> GetById(int id)
+        {
+            var admission = await _biz.GetById(id);
+            return new SuccessResponse<AdmissionReadDto>(admission);
+        }
+
         [HttpPost]
         public async Task<Response<AdmissionReadDto>> Edit(AdmissionEditorDto admission)
         {
@@ -37,6 +44,13 @@ namespace CMS.Host.Controllers.Api
                 StudentName = result.Student.Name,
                 Course = result.Course
             });
+        }
+
+        [HttpPost]
+        public async Task<Response<bool>> EditGrade(AdmissionReadDto admission)
+        {
+            await _biz.EditGrade(admission);
+            return new SuccessResponse<bool>(true);
         }
     }
 }

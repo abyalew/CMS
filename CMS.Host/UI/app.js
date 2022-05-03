@@ -10,6 +10,10 @@
                 });
             return defer.promise;
         };
+
+        $rootScope.closeModal = function (modalId) {
+            $(modalId).modal('hide');
+        };
     }]);
 
 angular.element(function () {

@@ -214,7 +214,9 @@
     <Content Include="UI\Directives\select2Dir.js" />
     <Content Include="UI\Index.html" />
     <Content Include="UI\Partials\Forms\StudentFrom.html" />
+    <Content Include="UI\Partials\Forms\StudentGradeForm.html" />
     <Content Include="UI\Partials\Header.html" />
+    <Content Include="UI\Partials\Modals\StudentGradeEditorModal.html" />
     <Content Include="UI\Partials\Modals\StudentEditorModal.html" />
     <Content Include="UI\Partials\Pages\StudentList.html" />
     <Content Include="UI\route-config.js" />
