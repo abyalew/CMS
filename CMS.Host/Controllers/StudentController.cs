@@ -30,7 +30,7 @@ namespace CMS.Host.Controllers
                 {
                     RegistrationNo = a.Id,
                     CourseName = a.Course.AwardTitle,
-                    StudentName = a.Student.Name,
+                    StudentName = a.StudentName,
                     Grade = a.Grade,
                     StudentGrades = a.StudentGrades
                 }
@@ -66,8 +66,8 @@ namespace CMS.Host.Controllers
                 RegistrationNo = a.Id,
                 StudentGrades = a.StudentGrades,
                 StudentId = a.StudentId,
-                StudentName = a.Student.Name,
-                StudentBirthday = a.Student.Birthday
+                StudentName = a.StudentName,
+                StudentBirthday = a.StudentBirthday
             };
             return View(vm);
         }

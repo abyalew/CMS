@@ -5,7 +5,7 @@
             $stateProvider.state({
                 name: 'students',
                 url: '/students',
-                templateUrl: 'partials/StudentList.html',
+                templateUrl: 'partials/Pages/StudentList.html',
                 controller: 'StudentsCtrl'
             });
         }

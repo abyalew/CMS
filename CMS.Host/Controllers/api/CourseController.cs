@@ -16,9 +16,9 @@ namespace CMS.Host.Controllers.Api
         }
 
         [HttpGet]
-        public async Task<List<CourseViewDto>> Index()
+        public async Task<Response<List<CourseViewDto>>> GetAll()
         {
-            return await _biz.GetPage();
+            return new SuccessResponse<List<CourseViewDto>>(await _biz.GetPage());
         }
     }
 }

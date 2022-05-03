@@ -79,7 +79,10 @@ namespace CMS.Business
         private AdmissionReadDto MapToAdmissionReadDto(Admission addmission)
         {
             var result = _autoMap.MapTo<AdmissionReadDto>(addmission);
-
+            if (addmission.Student != null)
+                result.StudentName = addmission.Student.Name;
+            if (addmission.Course != null)
+                result.CourseName = addmission.Course.AwardTitle;
             foreach (var cs in addmission.Course.CourseSubjects)
             {
                 if (!result.StudentGrades.Any(sg => sg.SubjectId == cs.SubjectId))

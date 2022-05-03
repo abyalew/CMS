@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace CMS.Business.Dtos
 {
@@ -17,10 +18,16 @@ namespace CMS.Business.Dtos
         public string StudentName { get; set; }
     }
 
-    public class AdmissionReadDto : AdmissionDto
+    public class AdmissionReadDto
     {
+        public int Id { get; set; }
+        public int StudentId { get; set; }
+        public int CourseId { get; set; }
+        public decimal Grade { get; set; }
         public string StudentName { get; set; }
+        public DateTime StudentBirthday { get; set; }
         public string CourseName { get; set; }
+        public CourseDto Course { get; set; }
         public List<StudentGradeDto> StudentGrades { get; set; }
     }
 }

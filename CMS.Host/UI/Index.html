@@ -4,7 +4,17 @@
     <meta charset="utf-8" />
     <title></title>
     <link href="../Content/bootstrap.css" rel="stylesheet">
-    <link href="../Content/bootstrap-select.css" rel="stylesheet">
+    <link href="../Content/select2.css" rel="stylesheet">
+    <style>
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .modal-body{
+            margin: 10px;
+        }
+    </style>
 </head>
 <body>
     <nav class="navbar navbar-default">
@@ -21,25 +31,29 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Students <span class="sr-only">(current)</span></a></li>
-                    <li><a href="#">Teachers</a></li>
-                    <li><a href="#">Courses</a></li>
-                    <li><a href="#">Subjects</a></li>
+                    <li class="active"><a ui-sref="students">Students</a></li>
+                    <li><a ui-sref="teachers">Teachers</a></li>
+                    <li><a ui-sref="courses">Courses</a></li>
+                    <li><a ui-sref="subjects">Subjects</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div ng-controller="Main">
+    <div ng-controller="Main" class="container">
         <ui-view></ui-view>
     </div>
     <script src="../scripts/jquery-3.4.1.js"></script>
-    <script src="../scripts/jquery-3.4.1.js"></script>
+    <script src="../scripts/underscore.js"></script>
+    <script src="../scripts/select2.full.js"></script>
+    <script src="../scripts/bootstrap.js"></script>
     <script src="../scripts/angular.js"></script>
     <script src="../scripts/angular-ui-router.js"></script>
     <script src="app.js"></script>
     <script src="route-config.js"></script>
+    <script src="Directives/select2Dir.js"></script>
+    <script src="Services/HttpClient.js"></script>
+    <script src="Services/StudentSvc.js"></script>
     <script src="Controllers/StudentsCtrl.js"></script>
-
 </body>
 </html>

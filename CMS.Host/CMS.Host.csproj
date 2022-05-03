@@ -157,11 +157,13 @@
   <ItemGroup>
     <Compile Include="App_Start\AutofacConfig.cs" />
     <Compile Include="App_Start\AutoMap.cs" />
+    <Compile Include="App_Start\BrowserJsonFormatter.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\api\CourseController.cs" />
+    <Compile Include="Controllers\api\Response.cs" />
     <Compile Include="Controllers\api\StudentController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,11 +184,13 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\select2.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\angular-route.js" />
+    <Content Include="Scripts\angular-select2.js" />
     <Content Include="Scripts\angular-ui-router.js" />
     <Content Include="Scripts\angular.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -203,12 +207,19 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\select2.full.js" />
+    <Content Include="Scripts\underscore.js" />
     <Content Include="UI\app.js" />
     <Content Include="UI\Controllers\StudentsCtrl.js" />
+    <Content Include="UI\Directives\select2Dir.js" />
     <Content Include="UI\Index.html" />
+    <Content Include="UI\Partials\Forms\StudentFrom.html" />
     <Content Include="UI\Partials\Header.html" />
-    <Content Include="UI\Partials\StudentList.html" />
+    <Content Include="UI\Partials\Modals\StudentEditorModal.html" />
+    <Content Include="UI\Partials\Pages\StudentList.html" />
     <Content Include="UI\route-config.js" />
+    <Content Include="UI\Services\HttpClient.js" />
+    <Content Include="UI\Services\StudentSvc.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -236,7 +247,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
-    <Folder Include="UI\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
