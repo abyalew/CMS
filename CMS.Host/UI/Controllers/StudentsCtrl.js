@@ -12,7 +12,7 @@
                     'partials/Modals/StudentEditorModal.html',
                     'partials/Modals/StudentGradeEditorModal.html'
                 ],
-                studentForm: 'partials/Forms/StudentFrom.html',
+                studentForm: 'partials/Forms/StudentForm.html',
                 studentGradeForm: 'partials/Forms/StudentGradeForm.html'
             }
         };

@@ -31,10 +31,10 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a ui-sref="students">Students</a></li>
-                    <li><a ui-sref="teachers">Teachers</a></li>
-                    <li><a ui-sref="courses">Courses</a></li>
-                    <li><a ui-sref="subjects">Subjects</a></li>
+                    <li ui-sref-active="active"><a ui-sref="students">Students</a></li>
+                    <li ui-sref-active="active"><a ui-sref="teachers">Teachers</a></li>
+                    <li ui-sref-active="active"><a ui-sref="courses">Courses</a></li>
+                    <li ui-sref-active="active"><a ui-sref="subjects">Subjects</a></li>
                 </ul>
             </div>
         </div>
@@ -55,5 +55,6 @@
     <script src="Services/HttpClient.js"></script>
     <script src="Services/StudentSvc.js"></script>
     <script src="Controllers/StudentsCtrl.js"></script>
+    <script src="Controllers/TeachersCtrl.js"></script>
 </body>
 </html>

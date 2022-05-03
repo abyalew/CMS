@@ -15,7 +15,7 @@
                     return $http.post(url + 'edit', data);
                 },
                 delete: function (id) {
-                    return $http.post(url + 'delete/' + id);
+                    return $http.get(url + 'delete/' + id);
                 }
             }
         }
