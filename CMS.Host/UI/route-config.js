@@ -22,5 +22,12 @@
                 templateUrl: 'partials/Pages/CourseList.html',
                 controller: 'CoursesCtrl'
             });
+
+            $stateProvider.state({
+                name: 'subjects',
+                url: '/subjects',
+                templateUrl: 'partials/Pages/SubjectList.html',
+                controller: 'SubjectsCtrl'
+            });
         }
     ]);
