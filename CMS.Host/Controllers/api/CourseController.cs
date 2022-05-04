@@ -14,11 +14,28 @@ namespace CMS.Host.Controllers.Api
         {
             _biz = biz;
         }
-
         [HttpGet]
         public async Task<Response<List<CourseViewDto>>> GetAll()
         {
-            return new SuccessResponse<List<CourseViewDto>>(await _biz.GetPage());
+            return new SuccessResponse<List<CourseViewDto>>(await _biz.GetAll());
+        }
+
+        [HttpGet]
+        public async Task<Response<CourseDto>> GetById(int id)
+        {
+            return new SuccessResponse<CourseDto>(await _biz.GetById(id));
+        }
+
+        [HttpPost]
+        public async Task<Response<CourseDto>> Edit(CourseDto course)
+        {
+            return new SuccessResponse<CourseDto>(await _biz.Edit(course));
+        }
+
+        [HttpGet]
+        public async Task<Response<CourseDto>> Delete(int id)
+        {
+            return new SuccessResponse<CourseDto>(await _biz.Delete(id));
         }
     }
 }

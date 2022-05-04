@@ -20,13 +20,13 @@ namespace CMS.Host.Controllers
 
         public async Task<ViewResult> Index()
         {
-            return View(await _biz.GetPage());
+            return View(await _biz.GetAll());
         }
 
         [HttpGet]
         public async Task<ViewResult> Edit(int? id)
         {
-            var subjects = await _subject.GetPage();
+            var subjects = await _subject.GetAll();
             var viewModel = new CourseEditorViewModel();
             viewModel.Subjects = subjects.Select(s => new SelectListItem { Disabled = false, Text = s.Name, Value = s.Id.ToString() }).ToList();
 

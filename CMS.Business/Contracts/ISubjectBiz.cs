@@ -6,7 +6,7 @@ namespace CMS.Business.Contracts
 {
     public interface ISubjectBiz
     {
-        Task<List<SubjectDto>> GetPage();
+        Task<List<SubjectDto>> GetAll();
         Task<SubjectDto> GetById(int id);
         Task<SubjectDto> Edit(SubjectDto subject);
         Task<SubjectDto> Delete(int subjectId);

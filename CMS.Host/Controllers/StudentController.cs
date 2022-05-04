@@ -42,7 +42,7 @@ namespace CMS.Host.Controllers
         [HttpGet]
         public async Task<ViewResult> Edit(int? id)
         {
-            var courses = await _courseBiz.GetPage();
+            var courses = await _courseBiz.GetAll();
 
             var vm = new AdmissionEditorViewModel
             {

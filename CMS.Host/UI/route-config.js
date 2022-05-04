@@ -19,7 +19,7 @@
             $stateProvider.state({
                 name: 'courses',
                 url: '/courses',
-                templateUrl: 'partials/Pages/courseList.html',
+                templateUrl: 'partials/Pages/CourseList.html',
                 controller: 'CoursesCtrl'
             });
         }

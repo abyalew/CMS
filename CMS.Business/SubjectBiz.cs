@@ -20,7 +20,7 @@ namespace CMS.Business
             _objectMap = objectMap;
         }
 
-        public async Task<List<SubjectDto>> GetPage()
+        public async Task<List<SubjectDto>> GetAll()
         {
             var subjects = await _repo.GetAllAsync(s => s.Teacher, s => s.CourseSubjects.Select(cs=>cs.Course.Admissions));
            return  subjects.Select(s =>

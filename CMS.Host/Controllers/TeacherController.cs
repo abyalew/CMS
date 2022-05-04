@@ -5,7 +5,7 @@ using System.Web.Mvc;
 
 namespace CMS.Host.Controllers
 {
-    public class TeacherController : Controller
+    public partial class TeacherController : Controller
     {
         private readonly ITeacherBiz _biz;
 

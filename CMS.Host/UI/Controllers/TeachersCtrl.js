@@ -16,12 +16,6 @@
 
         (function () {
             loadTeachers();
-            //courseClient.getAll()
-            //    .then(function (response) {
-            //        vm.courseOpts = _.map(response.data.Content, function (c) {
-            //            return { id: c.Id, text: c.AwardTitle };
-            //        });
-            //    });
         })();
 
 

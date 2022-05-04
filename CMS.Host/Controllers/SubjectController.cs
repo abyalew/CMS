@@ -20,7 +20,7 @@ namespace CMS.Host.Controllers
         }
         public async Task<ViewResult> Index()
         {
-            return View(await _biz.GetPage());
+            return View(await _biz.GetAll());
         }
 
         [HttpGet]
